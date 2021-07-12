@@ -6,7 +6,7 @@ class Users(object):
         while True:
             try:                
                 n = int(input('Enter number of players: '))
-                if n == 0:
+                if n <= 0:
                     raise ValueError
                 break
             except (RuntimeError, TypeError, ValueError):
