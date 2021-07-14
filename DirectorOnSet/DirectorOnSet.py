@@ -14,11 +14,11 @@ print(f'Each round will last for {round_time} seconds.')
 
 if __name__ == '__main__':
     timer = threading.Thread(target=TimerController.count_time, args=(round_time,))
-    display = threading.Thread(target=ReadFile.read_prompt)
+    display = threading.Thread(target=ReadFile.display_prompt)
 
     timer.start()
     display.start()
-    
+    timer.join()
     if timer.join():
         display.join()
 
