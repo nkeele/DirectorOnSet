@@ -1,8 +1,8 @@
 import time
+import signal
 
 class TimerController(object):
     """Takes a user-given value of time and sets time limits based on that value."""
-    time_limit = 0    
     
     def ask_for_time():
 
@@ -20,13 +20,13 @@ class TimerController(object):
     def count_time(set_time):
 
         while set_time > 0:
-            
             min, sec = divmod(set_time, 60)
             timer = '{:02d}:{:02d}'.format(min, sec)
             print(timer, end = '\r')
             time.sleep(1)
             set_time -= 1
         return False
+
         
 
 

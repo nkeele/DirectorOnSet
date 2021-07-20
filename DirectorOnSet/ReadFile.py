@@ -3,16 +3,17 @@ from TimerController import *
 import queue
 
 class ReadFile(object):
-    """This class will read the text file of prompts to display during the game."""    
+    """This class will read the text file of prompts to display during the game."""
 
     def display_prompt():
         f = open('TestPrompts.txt', 'r')
         prompt_list = f.readlines()
         f.close()
         counter = len(prompt_list)
-        print(counter)
+        print(f'{counter} prompts set to display.\n')
         try:
-            while prompt_list and counter != 0: #and stop_check == False
+            #while prompt_list and counter != 0: #and TimerController.timer_active is True:
+            while counter != 0: #and TimerController.check_time():
                     prompt_line = Randomizer.randomize_prompt_line(counter - 1)
                     print(prompt_list.pop(prompt_line))
                     counter -= 1
